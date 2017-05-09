@@ -18,32 +18,6 @@ headers = {
 }
 
 
-def login():
-    url = 'https://ipgw.neu.edu.cn/srun_portal_pc.php?url=&ac_id=1'
-
-    params = {
-        'action': 'login',
-        'ac_id': 1,
-        'user_ip': '',
-        'nas_ip': '',
-        'user_mac': '',
-        'url': '',
-        'username': username,
-        'password': password,
-        'save_me': 0,
-    }
-
-    data = parse.urlencode(params).encode(encoding='utf-8')
-    req = request.Request(url=url, data=data, headers=headers, method='POST')
-    res = request.urlopen(req, timeout=15)
-    if res.getcode() != 200:
-        print('操作失败')
-    else:
-        print('操作成功')
-    # else:
-    #     print(str(res.read(), encoding='utf-8'))
-
-
 def logout():
     url = 'https://ipgw.neu.edu.cn/include/auth_action.php'
 

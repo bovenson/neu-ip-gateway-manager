@@ -37,26 +37,9 @@ def login():
     req = request.Request(url=url, data=data, headers=headers, method='POST')
     res = request.urlopen(req, timeout=15)
     if res.getcode() != 200:
-        print('登录失败')
-    # else:
-    #     print(str(res.read(), encoding='utf-8'))
-
-
-def logout():
-    url = 'https://ipgw.neu.edu.cn/include/auth_action.php'
-
-    params = {
-        'action': 'logout',
-        'username': username,
-        'password': password,
-        'ajax': '1',
-    }
-
-    data = parse.urlencode(params).encode(encoding='utf-8')
-    req = request.Request(url=url, data=data, headers=headers, method='POST')
-    res = request.urlopen(req, timeout=15)
-    if res.getcode() != 200:
-        print('账号注销失败')
+        print('操作失败')
+    else:
+        print('操作成功')
     # else:
     #     print(str(res.read(), encoding='utf-8'))
 
